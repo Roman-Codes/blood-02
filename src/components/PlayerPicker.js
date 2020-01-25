@@ -2,9 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectNumberOfPlayers } from '../actions';
 
-import PlayerCard from './PlayerCard';
-
-
 const PlayerPicker = ({ selectNumberOfPlayers }) => {
 
     const renderPicker = () => {
@@ -36,7 +33,6 @@ const PlayerPicker = ({ selectNumberOfPlayers }) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return { numberOfPlayers: state.numberOfPlayers };
 }
 

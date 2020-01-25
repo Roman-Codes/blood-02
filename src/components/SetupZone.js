@@ -4,7 +4,7 @@ import PlayerPicker from './PlayerPicker';
 
 const SetupZone = () => {
     return(
-        <div className="PlayerZone">
+        <div className="SetupZone">
             <h2>Zis be setup Zone</h2>
             <PlayerPicker />
         </div>

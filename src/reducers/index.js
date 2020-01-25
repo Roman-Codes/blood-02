@@ -8,9 +8,9 @@ const selectedCharacterReducer = (selectedCharacter = null, action) => {
     return selectedCharacter;
 }
 
-const numberOfPlayersReducer = (numberOfPlayers = '', action) => {
+const numberOfPlayersReducer = (numberOfPlayers = null, action) => {
     if (action.type === 'NUMBER_OF_PLAYERS_SELECTED'){
-        return action.payload;
+        return parseInt(action.payload);
     }
 
     return numberOfPlayers;

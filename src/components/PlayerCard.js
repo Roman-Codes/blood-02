@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 
-const PlayerCard = () => {
+const PlayerCard = ({ number }) => {
     return(
         <div className="PlayerCard">
-            <h2>I am a player Card</h2>
+            <h2>I am a player #{number}</h2>
         </div>
     )
 }
