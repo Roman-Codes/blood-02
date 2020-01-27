@@ -33,3 +33,9 @@ export const removeRole = (role) => {
         payload: role
     };
 }
+
+export const advanceTurn = () => {
+    return {
+        type: 'TURN_ADVANCED'
+    }
+}

@@ -36,8 +36,34 @@ const rolesReducer = (roles = allRoles, action) => {
     }
 }
 
+const turnObj = {
+    number: 1,
+    daytime: true
+}
+
+const turnReducer = (turn = turnObj, action) => {
+    const nextDay = (obj) =>{
+        obj.daytime = true;
+        obj.number++;
+    }
+
+    if (action.type === 'TURN_ADVANCED'){
+        const cloneObject = {...turn};
+        if (cloneObject.daytime){
+            cloneObject.daytime = false;
+            return cloneObject
+        }
+
+        nextDay(cloneObject);
+        return cloneObject;
+    }
+
+    return turn;
+}
+
 export default combineReducers({
     character: selectedCharacterReducer,
     numberOfPlayers: numberOfPlayersReducer,
-    roles: rolesReducer
+    roles: rolesReducer,
+    turn: turnReducer
 })

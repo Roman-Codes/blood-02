@@ -17,7 +17,7 @@ const PlayerCard = ({ number }) => {
 
 
     return(
-        <div className="PlayerCard">
+        <div className="PlayerCard" id={playerRole}>
             <label htmlFor="name">Name:</label>
             <div>{playerName === '' ? <input name="name" onKeyPress={handleName} /> : <div>{playerName}</div> }</div>
             {playerRole.length ? <div>{`I am ${playerRole}`}</div> : <RolePicker setPlayerRole={setPlayerRole}/>}
