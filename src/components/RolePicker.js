@@ -11,7 +11,7 @@ const RolePicker = ({ roles, pickRole, setPlayerRole }) => {
     }
 
     const renderRoles = () => {
-        return roles.map(role => <option
+        return roles.available.map(role => <option
             onClick={()=> handleSelect(role)}
             key={role}
             id={role}

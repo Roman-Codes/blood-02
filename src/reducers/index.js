@@ -20,14 +20,23 @@ const numberOfPlayersReducer = (numberOfPlayers = null, action) => {
     return numberOfPlayers;
 }
 
-const rolesReducer = (roles = allRoles, action) => {
+const rolesObj = {
+    available: allRoles,
+    inPlay : []
+}
+
+const rolesReducer = (roles = rolesObj, action) => {
+    const rolesObjClone = {...roles};
+
     switch(action.type){
         case 'ROLE_PICKED' :{
-            console.log('role picked');
-            return roles.filter(role => role !== action.payload);
+            rolesObjClone.available = rolesObjClone.available.filter(role => role !== action.payload);
+            rolesObjClone.inPlay = [...rolesObjClone.inPlay, action.payload];
+            return rolesObjClone;
         }
 
         case 'ROLE_REMOVED' :{
+            // need to add logic for removal roles from inPlay array
             return [...roles, action.payload]
         }
 
@@ -65,5 +74,6 @@ export default combineReducers({
     character: selectedCharacterReducer,
     numberOfPlayers: numberOfPlayersReducer,
     roles: rolesReducer,
-    turn: turnReducer
+    turn: turnReducer,
+
 })
