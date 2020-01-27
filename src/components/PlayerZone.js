@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import PlayerCard from './PlayerCard';
 
+const Zone = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`
 
 const PlayerZone = ({ numberOfPlayers }) => {
     const [number, setNumber] = useState(null);
@@ -22,13 +27,9 @@ const PlayerZone = ({ numberOfPlayers }) => {
 
 
     return(
-        <div className="PlayerZone">
-            <h3>Zis be PlayerZone</h3>
-            <br/>
-            <div className="playercards" style={{ display: 'flex' }}>
-                {numberOfPlayers ? renderCards() : <span>Select number of players plz</span>}
-            </div>
-        </div>
+        <Zone className="PlayerZone">
+            {numberOfPlayers ? renderCards() : <span>Select number of players plz</span>}
+        </Zone>
     )
 }
 
